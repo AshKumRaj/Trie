@@ -128,7 +128,7 @@ public class Trie {
     public String longestCommonPrefix(){
         TrieNode curr = root;
         String res = "";
-        while(curr.trieMap.size() == 1){
+        while(curr.trieMap.size() == 1 && curr.endOfWord == false){
             char ch = curr.trieMap.entrySet().iterator().next().getKey();
             curr = curr.trieMap.get(ch);
             res = res + ch;
@@ -142,10 +142,9 @@ public class Trie {
     public static void main(String[] args) {
         // TODO code application logic here
         Trie t = new Trie();
-        t.insert("abc");
-        t.insert("abcd");
-        t.insert("abcgl");
-        t.insert("cdf");
+        t.insert("c");
+        t.insert("cc");
+        t.insert("ccc");
         //t.insert("lmn");
         //t.displayAllWords();
         //System.out.println(t.search("abc"));
@@ -158,7 +157,7 @@ public class Trie {
         //t.delete("ab");
 //        System.out.println(t.search("a"));
         //t.displayAllWords();
-        t.displayWordsStartingWith("abx");
+        //t.displayWordsStartingWith("abx");
         System.out.println(t.longestCommonPrefix());
     }
     
